@@ -13,7 +13,6 @@ C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationServic
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\NotificationService.dll
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\ref\NotificationService.dll
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\NotificationService.pdb
-C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\DnsClient.dll
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -26,3 +25,6 @@ C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationServic
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\obj\Debug\net6.0\ref\NotificationService.dll
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\obj\Debug\net6.0\NotificationService.pdb
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\obj\Debug\net6.0\NotificationService.genruntimeconfig.cache
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\MailKit.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\MimeKit.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\BouncyCastle.Crypto.dll
