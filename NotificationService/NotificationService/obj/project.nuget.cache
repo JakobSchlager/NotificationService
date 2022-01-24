@@ -1,20 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "3vhQqCHmLFWO+I0y2qCS/80FY/Tsp8Kd02kn+hOjGOt6hhh3POBJI0/wivG8LlRuI6yxI60BsMvLm3wu1Cykqw==",
+  "dgSpecHash": "RxyiBr1j34fiCtFzAGsA2PGg9MHaNm957oHwfLQxQxPr8o7ftDHeYbIutrzOSG1pBGAYkLPK6bULrJR/P5pp8Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\jakob\\OneDrive - htl-grieskirchen.at\\Diplomarbeit\\07_NotificationService\\NotificationService\\NotificationService\\NotificationService.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\jakob\\.nuget\\packages\\dnsclient\\1.5.0\\dnsclient.1.5.0.nupkg.sha512",
+    "C:\\Users\\jakob\\.nuget\\packages\\mailkit\\3.1.0\\mailkit.3.1.0.nupkg.sha512",
     "C:\\Users\\jakob\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
-    "C:\\Users\\jakob\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\jakob\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
-    "C:\\Users\\jakob\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
+    "C:\\Users\\jakob\\.nuget\\packages\\mimekit\\3.1.0\\mimekit.3.1.0.nupkg.sha512",
+    "C:\\Users\\jakob\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\jakob\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\jakob\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\jakob\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
     "C:\\Users\\jakob\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
-    "C:\\Users\\jakob\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
-    "C:\\Users\\jakob\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512"
+    "C:\\Users\\jakob\\.nuget\\packages\\system.formats.asn1\\6.0.0\\system.formats.asn1.6.0.0.nupkg.sha512",
+    "C:\\Users\\jakob\\.nuget\\packages\\system.security.cryptography.pkcs\\6.0.0\\system.security.cryptography.pkcs.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }
