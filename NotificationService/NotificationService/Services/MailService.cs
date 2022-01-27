@@ -45,5 +45,6 @@ public class MailService : IMailService
         smtp.Authenticate(_mailSettings.Mail, _mailSettings.Password);
         await smtp.SendAsync(email);
         smtp.Disconnect(true);
+        Console.WriteLine("End Of FIle reached!");
     }
 }
