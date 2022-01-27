@@ -2,13 +2,12 @@
 using NotificationService.Models;
 using NotificationService.Services;
 
-namespace NotificationService.Events;
+namespace PDFService.Events;
 public class PDFCreatedEvent
 {
     public int TicketId { get; set; }
     public string Email { get; set; }
 }
-
 public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
 {
     private readonly IMailService _mailService; 

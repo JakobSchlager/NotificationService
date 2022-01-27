@@ -1,7 +1,7 @@
 using MailKit;
 using MassTransit;
 using NotificationService;
-using NotificationService.Events;
+using PDFService.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
