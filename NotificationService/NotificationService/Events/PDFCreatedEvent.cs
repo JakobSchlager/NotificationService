@@ -36,7 +36,7 @@ public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
         Console.WriteLine("MailService: attachmentCount" + attachments.Count);
 
         _mailService.SendEmailAsync(new MailRequest {
-            ToEmail = context.Message.Email,
+            ToEmail = "jakobschlager.biz@gmail.com",
             Subject = $"Kinoticket: {context.Message.TicketId}",
             Body = "Vielen Dank, dass Sie unser Kino gewählt haben!",
             Attachments = attachments,  
