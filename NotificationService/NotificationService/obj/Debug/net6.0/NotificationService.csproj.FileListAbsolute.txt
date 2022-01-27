@@ -28,3 +28,15 @@ C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationServic
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\MailKit.dll
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\MimeKit.dll
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\Testrun.pdf
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\Automatonymous.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\GreenPipes.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\MassTransit.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\MassTransit.AspNetCoreIntegration.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\MassTransit.ExtensionsDependencyInjectionIntegration.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\MassTransit.RabbitMqTransport.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\NewId.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\RabbitMQ.Client.dll
