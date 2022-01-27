@@ -29,7 +29,7 @@ public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
             attachments.Add(new FormFile(stream, 0, stream.Length, null, Path.GetFileName(stream.Name))
             {
                 Headers = new HeaderDictionary(),
-                ContentType = "application/pdf"
+                ContentType = "application/pdf", 
             });
         }
 
