@@ -16,7 +16,10 @@ public class MailService : IMailService
     public async Task SendEmailAsync(MailRequest mailRequest)
     {
         Console.WriteLine("MailService::SendEmailAsync");
-        Console.WriteLine("Mailrequest:" + mailRequest.ToEmail);
+        Console.WriteLine("Mailrequest.ToEmail:" + mailRequest.ToEmail);
+        Console.WriteLine("Mailrequest.Subject:" + mailRequest.Subject);
+        Console.WriteLine("Mailrequest.Body:" + mailRequest.Body);
+        Console.WriteLine("Mailrequest.Attachments:" + mailRequest.Attachments);
         var email = new MimeMessage();
         Console.WriteLine("MailService::MimeMessage()");
         email.Sender = MailboxAddress.Parse(_mailSettings.Mail);
