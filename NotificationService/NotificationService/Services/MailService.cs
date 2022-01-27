@@ -35,14 +35,21 @@ public class MailService : IMailService
             byte[] fileBytes;
             foreach (var file in mailRequest.Attachments)
             {
+                Console.WriteLine("in foreach loop above if");
                 if (file.Length > 0)
                 {
+                    Console.WriteLine("in if");
                     using (var ms = new MemoryStream())
                     {
+                        Console.WriteLine("in using");
                         file.CopyTo(ms);
+                        Console.WriteLine("after file.copy");
                         fileBytes = ms.ToArray();
+                        Console.WriteLine("after ToArray");
                     }
                     builder.Attachments.Add(file.FileName, fileBytes, ContentType.Parse(file.ContentType));
+                        Console.WriteLine("after builder.Atachments.add");
+                        Console.WriteLine(file.FileName + " ," + fileBytes + ", " +file.ContentType);
                 }
             }
         }
