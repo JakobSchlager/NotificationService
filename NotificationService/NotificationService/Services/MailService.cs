@@ -30,7 +30,7 @@ public class MailService : IMailService
         Console.WriteLine("email.Subject = mailRequest.Subject;");
         var builder = new BodyBuilder();
         Console.WriteLine("var builder = new Builder()");
-        /*if (mailRequest.Attachments != null)
+        if (mailRequest.Attachments != null)
         {
             byte[] fileBytes;
             foreach (var file in mailRequest.Attachments)
@@ -52,7 +52,7 @@ public class MailService : IMailService
                         Console.WriteLine(file.FileName + " ," + fileBytes + ", " +file.ContentType);
                 }
             }
-        }*/
+        }
         Console.WriteLine("mailrequest.Attachments if done");
         builder.HtmlBody = mailRequest.Body;
         Console.WriteLine("builder.HtmlBody = mailRequest.Body;");
