@@ -28,9 +28,16 @@ public class EmailController : ControllerBase
 
     }
 
-    [HttpPost("test")]
-    public async Task<IActionResult> TestMail([FromForm] MailRequest request)
+    [HttpGet("test")]
+    public async Task<IActionResult> TestMail()
     {
+        var request = new MailRequest
+        {
+            ToEmail = "jakob.sschlager@gmail.com",
+            Body = "Testing",
+            Subject = "Test",
+        };
+
         var attachments = new List<IFormFile>();
 
         using var stream = System.IO.File.OpenRead("Testrun.pdf");
@@ -41,9 +48,9 @@ public class EmailController : ControllerBase
         });
 
         request.Attachments = attachments;
-        
+
         await mailService.SendEmailAsync(request);
 
-        return Ok(); 
+        return Ok();
     }
 }
