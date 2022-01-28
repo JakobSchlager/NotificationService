@@ -20,9 +20,9 @@ public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
     {
         var request = new MailRequest
         {
-            ToEmail = "jakob.sschlager@gmail.com",
-            Body = "Testing",
-            Subject = "Test",
+            ToEmail = context.Message.Email, 
+            Body = "Thank you for choosing our movies!",
+            Subject = "Movies Ticket",
         };
 
         var attachments = new List<IFormFile>();
