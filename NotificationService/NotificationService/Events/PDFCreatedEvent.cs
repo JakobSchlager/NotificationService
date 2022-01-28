@@ -18,27 +18,24 @@ public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
 
     public async Task Consume(ConsumeContext<PDFCreatedEvent> context)
     {
-        Console.WriteLine("PDFCreatedConsumer::Consume: " + context.Message.TicketId + ", Email:" + context.Message.Email);
-        Console.WriteLine("MailService:" + _mailService); 
-
-        var attachments = new List<IFormFile>();  
-
-        using (var stream = File.OpenRead("Testrun.pdf"))
+        var request = new MailRequest
         {
-            attachments.Add(new FormFile(stream, 0, stream.Length, null, Path.GetFileName(stream.Name))
-            {
-                Headers = new HeaderDictionary(),
-                ContentType = "application/pdf", 
-            });
-        }
+            ToEmail = "jakob.sschlager@gmail.com",
+            Body = "Testing",
+            Subject = "Test",
+        };
 
-        Console.WriteLine("MailService: attachmentCount" + attachments.Count);
+        var attachments = new List<IFormFile>();
 
-        _mailService.SendEmailAsync(new MailRequest {
-            ToEmail = "jakob.schlager.biz@gmail.com",
-            Subject = $"Kinoticket: {context.Message.TicketId}",
-            Body = "Vielen Dank, dass Sie unser Kino gewählt haben!",
-            Attachments = attachments,  
+        using var stream = System.IO.File.OpenRead("Testrun.pdf");
+        attachments.Add(new FormFile(stream, 0, stream.Length, null, Path.GetFileName(stream.Name))
+        {
+            Headers = new HeaderDictionary(),
+            ContentType = "application/pdf",
         });
+
+        request.Attachments = attachments;
+
+        await _mailService.SendEmailAsync(request);
     }
 }
