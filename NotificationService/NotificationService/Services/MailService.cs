@@ -39,17 +39,17 @@ public class MailService : IMailService
                 if (file.Length > 0)
                 {
                     Console.WriteLine("in if");
-                    using (var ms = new MemoryStream())
-                    {
-                        Console.WriteLine("in using");
-                        file.CopyTo(ms);
-                        Console.WriteLine("after file.copy");
-                        fileBytes = ms.ToArray();
-                        Console.WriteLine("after ToArray");
-                    }
+                    var ms = new MemoryStream();
+
+                    Console.WriteLine("in using");
+                    file.CopyTo(ms);
+                    Console.WriteLine("after file.copy");
+                    fileBytes = ms.ToArray();
+                    Console.WriteLine("after ToArray");
+
                     builder.Attachments.Add(file.FileName, fileBytes, ContentType.Parse(file.ContentType));
-                        Console.WriteLine("after builder.Atachments.add");
-                        Console.WriteLine(file.FileName + " ," + fileBytes + ", " +file.ContentType);
+                    Console.WriteLine("after builder.Atachments.add");
+                    Console.WriteLine(file.FileName + " ," + fileBytes + ", " + file.ContentType);
                 }
             }
         }
