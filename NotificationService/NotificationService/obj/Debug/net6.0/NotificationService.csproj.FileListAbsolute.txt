@@ -40,3 +40,17 @@ C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationServic
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\obj\Debug\net6.0\ref\NotificationService.dll
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\obj\Debug\net6.0\NotificationService.pdb
 C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\obj\Debug\net6.0\NotificationService.genruntimeconfig.cache
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\DnsClient.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\MassTransit.MongoDbIntegration.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\MongoDB.Driver.GridFS.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\SharpCompress.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\runtimes\win\native\libzstd.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\runtimes\win\native\snappy32.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\runtimes\win\native\snappy64.dll
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\jakob\OneDrive - htl-grieskirchen.at\Diplomarbeit\07_NotificationService\NotificationService\NotificationService\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll

@@ -7,6 +7,7 @@ public class PDFCreatedEvent
 {
     public int TicketId { get; set; }
     public string Email { get; set; }
+    public MessageData<byte[]> Document { get; set; }
 }
 public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
 {
@@ -27,12 +28,16 @@ public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
 
         var attachments = new List<IFormFile>();
 
-        using var stream = System.IO.File.OpenRead("Testrun.pdf");
-        attachments.Add(new FormFile(stream, 0, stream.Length, null, Path.GetFileName(stream.Name))
+        byte[] byteArr = await context.Message.Document.Value;
+        using (var stream = new MemoryStream(byteArr))
         {
-            Headers = new HeaderDictionary(),
-            ContentType = "application/pdf",
-        });
+            //using var stream = System.IO.File.OpenRead("Testrun.pdf");
+            attachments.Add(new FormFile(stream, 0, stream.Length, null, "Kinoticket")
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "application/pdf",
+            });
+        }
 
         request.Attachments = attachments;
 

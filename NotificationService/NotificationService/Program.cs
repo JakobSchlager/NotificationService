@@ -1,5 +1,7 @@
 using MailKit;
 using MassTransit;
+using MassTransit.MessageData;
+using MassTransit.MongoDbIntegration.MessageData;
 using NotificationService;
 using PDFService.Events;
 
@@ -11,6 +13,7 @@ builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailS
 builder.Services.AddTransient<NotificationService.Services.IMailService, NotificationService.Services.MailService>();
 
 // Masstransit RabbitMQ
+IMessageDataRepository messageDataRepository = new MongoDbMessageDataRepository("mongodb://localhost:27017/", "pdfdata");
 var queueSettings = builder.Configuration.GetSection("RabbitMQ:QueueSettings").Get<QueueSettings>();
 
 builder.Services.AddMassTransit(x =>
@@ -19,6 +22,7 @@ builder.Services.AddMassTransit(x =>
 
     x.UsingRabbitMq((context, cfg) =>
     {
+        cfg.UseMessageData(messageDataRepository);
         cfg.Host(queueSettings.HostName, queueSettings.VirtualHost, h =>
         {
             h.Username(queueSettings.UserName);
