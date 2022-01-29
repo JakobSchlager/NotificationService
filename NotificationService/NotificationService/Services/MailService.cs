@@ -14,14 +14,17 @@ public class MailService : IMailService
     }
     public async Task SendEmailAsync(MailRequest mailRequest, byte[] fileBytes)
     {
+        Console.WriteLine("SendEmailAsync scuffed for test");
         var email = new MimeMessage();
         email.Sender = MailboxAddress.Parse(_mailSettings.Mail);
         email.To.Add(MailboxAddress.Parse(mailRequest.ToEmail));
         email.Subject = mailRequest.Subject;
         var builder = new BodyBuilder();
         
+        Console.WriteLine("try attachment added");
         builder.Attachments.Add("KinoTicket", fileBytes, ContentType.Parse("application/pdf"));
 
+        Console.WriteLine("attachment added");
         builder.HtmlBody = mailRequest.Body;
         email.Body = builder.ToMessageBody();
         using var smtp = new SmtpClient();
