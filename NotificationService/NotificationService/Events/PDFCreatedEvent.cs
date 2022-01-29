@@ -19,6 +19,8 @@ public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
 
     public async Task Consume(ConsumeContext<PDFCreatedEvent> context)
     {
+        Console.WriteLine("PDFCreatedEventConsumer::Consume");
+        Console.WriteLine("PDFCreatedEventConsumer::Consume" + context.Message.Email);
         var request = new MailRequest
         {
             ToEmail = context.Message.Email, 
@@ -29,6 +31,7 @@ public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
         var attachments = new List<IFormFile>();
 
         byte[] byteArr = await context.Message.Document.Value;
+        Console.WriteLine("byteArr:" + byteArr.ToString());
         using (var stream = new MemoryStream(byteArr))
         {
             //using var stream = System.IO.File.OpenRead("Testrun.pdf");
@@ -38,7 +41,7 @@ public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
                 ContentType = "application/pdf",
             });
         }
-
+        Console.WriteLine(attachments.Count);
         request.Attachments = attachments;
 
         await _mailService.SendEmailAsync(request);
