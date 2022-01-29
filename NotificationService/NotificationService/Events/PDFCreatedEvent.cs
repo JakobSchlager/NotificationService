@@ -11,10 +11,10 @@ public class PDFCreatedEvent
 }
 public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
 {
-    private readonly IMailService _mailService; 
+    private readonly IMailService _mailService;
     public PDFCreatedEventConsumer(IMailService mailService)
     {
-        this._mailService = mailService; 
+        this._mailService = mailService;
     }
 
     public async Task Consume(ConsumeContext<PDFCreatedEvent> context)
@@ -23,7 +23,7 @@ public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
         Console.WriteLine("PDFCreatedEventConsumer::Consume" + context.Message.Email);
         var request = new MailRequest
         {
-            ToEmail = context.Message.Email, 
+            ToEmail = context.Message.Email,
             Body = "Thank you for choosing our movies!",
             Subject = "Movies Ticket",
         };
@@ -32,18 +32,16 @@ public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
 
         byte[] byteArr = await context.Message.Document.Value;
         Console.WriteLine("byteArr:" + byteArr.ToString());
-        using (var stream = new MemoryStream(byteArr))
+        var stream = new MemoryStream(byteArr);
+        //using var stream = System.IO.File.OpenRead("Testrun.pdf");
+        attachments.Add(new FormFile(stream, 0, stream.Length, null, "Kinoticket")
         {
-            //using var stream = System.IO.File.OpenRead("Testrun.pdf");
-            attachments.Add(new FormFile(stream, 0, stream.Length, null, "Kinoticket")
-            {
-                Headers = new HeaderDictionary(),
-                ContentType = "application/pdf",
-            });
-        }
+            Headers = new HeaderDictionary(),
+            ContentType = "application/pdf",
+        });
         Console.WriteLine(attachments.Count);
         request.Attachments = attachments;
 
-        await _mailService.SendEmailAsync(request);
+        await _mailService.SendEmailAsync(request, byteArr);
     }
 }
