@@ -13,7 +13,7 @@ builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailS
 builder.Services.AddTransient<NotificationService.Services.IMailService, NotificationService.Services.MailService>();
 
 // Masstransit RabbitMQ
-IMessageDataRepository messageDataRepository = new MongoDbMessageDataRepository("mongodb://localhost:27017/", "pdfdata");
+IMessageDataRepository messageDataRepository = new MongoDbMessageDataRepository("mongodb://admin:password@localhost:27017", "pdfdata");
 var queueSettings = builder.Configuration.GetSection("RabbitMQ:QueueSettings").Get<QueueSettings>();
 
 builder.Services.AddMassTransit(x =>
