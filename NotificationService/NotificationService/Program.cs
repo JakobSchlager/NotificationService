@@ -15,6 +15,12 @@ builder.Services.AddTransient<NotificationService.Services.IMailService, Notific
 // Masstransit RabbitMQ
 IMessageDataRepository messageDataRepository = new MongoDbMessageDataRepository("mongodb://admin:password@localhost:27017", "pdfdata");
 var queueSettings = builder.Configuration.GetSection("RabbitMQ:QueueSettings").Get<QueueSettings>();
+var rabbitmqHostname = Environment.GetEnvironmentVariable("RABBITMQ_HOSTNAME"); 
+if(rabbitmqHostname != null)
+{
+    queueSettings.HostName = rabbitmqHostname; 
+}
+Console.WriteLine($"queueSettings.HostName = {queueSettings.HostName}");
 
 builder.Services.AddMassTransit(x =>
 {
