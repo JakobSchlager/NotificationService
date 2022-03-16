@@ -27,30 +27,4 @@ public class EmailController : ControllerBase
         }
 
     }
-
-    [HttpGet("test")]
-    public async Task<IActionResult> TestMail()
-    {
-        var request = new MailRequest
-        {
-            ToEmail = "jakob.sschlager@gmail.com",
-            Body = "Testing",
-            Subject = "Test",
-        };
-
-        var attachments = new List<IFormFile>();
-
-        using var stream = System.IO.File.OpenRead("Testrun.pdf");
-        attachments.Add(new FormFile(stream, 0, stream.Length, null, Path.GetFileName(stream.Name))
-        {
-            Headers = new HeaderDictionary(),
-            ContentType = "application/pdf",
-        });
-
-        request.Attachments = attachments;
-
-        await mailService.SendEmailAsync(request);
-
-        return Ok();
-    }
 }
