@@ -42,6 +42,6 @@ public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
         Console.WriteLine(attachments.Count);
         request.Attachments = attachments;
 
-        await _mailService.SendEmailAsync(request, byteArr);
+        await _mailService.SendEmailAsync(request, byteArr, context.Message.TicketId);
     }
 }

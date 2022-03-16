@@ -1,19 +1,33 @@
 ﻿using MailKit.Net.Smtp;
 using MailKit.Security;
+using MassTransit;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using NotificationService.Models;
+using PDFService.Events;
 
 namespace NotificationService.Services;
 public class MailService : IMailService
 {
+    private readonly IBus _bus;
     private readonly MailSettings _mailSettings;
-    public MailService(IOptions<MailSettings> mailSettings)
+    public MailService(IBus bus, IOptions<MailSettings> mailSettings)
     {
+        _bus = bus; 
         _mailSettings = mailSettings.Value;
     }
-    public async Task SendEmailAsync(MailRequest mailRequest, byte[] fileBytes)
+    public async Task SendEmailAsync(MailRequest mailRequest, byte[] fileBytes, int ticketId)
     {
+        System.Net.Mail.MailAddress.TryCreate(mailRequest.ToEmail, out System.Net.Mail.MailAddress? result); 
+        if(result == null)
+        {
+            await _bus.Publish(new EmailFailedEvent
+            {
+                TicketId = ticketId,
+            });
+            return; 
+        }
+
         var email = new MimeMessage();
         email.Sender = MailboxAddress.Parse(_mailSettings.Mail);
         email.To.Add(MailboxAddress.Parse(mailRequest.ToEmail));
