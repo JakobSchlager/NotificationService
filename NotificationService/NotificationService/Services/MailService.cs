@@ -25,6 +25,7 @@ public class MailService : IMailService
             {
                 TicketId = ticketId,
             });
+            Console.WriteLine("Email is incorrect. Sent out EmailFailedEvent"); 
             return; 
         }
 
