@@ -3,8 +3,8 @@ using MailKit.Security;
 using MassTransit;
 using Microsoft.Extensions.Options;
 using MimeKit;
+using NotificationService.Events;
 using NotificationService.Models;
-using PDFService.Events;
 
 namespace NotificationService.Services;
 public class MailService : IMailService
