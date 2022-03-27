@@ -1,4 +1,3 @@
-using MailKit;
 using MassTransit;
 using MassTransit.MessageData;
 using MassTransit.MongoDbIntegration.MessageData;
@@ -13,15 +12,12 @@ builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailS
 builder.Services.AddTransient<NotificationService.Services.IMailService, NotificationService.Services.MailService>();
 
 // Masstransit RabbitMQ
-IMessageDataRepository messageDataRepository = new MongoDbMessageDataRepository("mongodb://admin:password@localhost:27017", "pdfdata");
 var queueSettings = builder.Configuration.GetSection("RabbitMQ:QueueSettings").Get<QueueSettings>();
-var rabbitmqHostname = Environment.GetEnvironmentVariable("RABBITMQ_HOSTNAME"); 
-if(rabbitmqHostname != null)
-{
-    queueSettings.HostName = rabbitmqHostname; 
-}
-Console.WriteLine($"queueSettings.HostName = {queueSettings.HostName}");
 
+var rabbitmqHostname = Environment.GetEnvironmentVariable("RABBITMQ_HOSTNAME"); 
+if(rabbitmqHostname != null) queueSettings.HostName = rabbitmqHostname; 
+
+IMessageDataRepository messageDataRepository = new MongoDbMessageDataRepository("mongodb://admin:password@localhost:27017", "pdfdata");
 builder.Services.AddMassTransit(x =>
 {
     x.AddConsumer<PDFCreatedEventConsumer>().Endpoint(x => x.Name = "PDFCreated_queue"); 

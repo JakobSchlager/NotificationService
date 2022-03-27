@@ -1,4 +1,5 @@
 ﻿using MassTransit;
+using NotificationService.Events;
 using NotificationService.Models;
 using NotificationService.Services;
 
@@ -11,37 +12,53 @@ public class PDFCreatedEvent
 }
 public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
 {
+    private readonly IBus _bus;
     private readonly IMailService _mailService;
-    public PDFCreatedEventConsumer(IMailService mailService)
+    public PDFCreatedEventConsumer(IBus bus, IMailService mailService)
     {
+        this._bus = bus;
         this._mailService = mailService;
     }
 
-    public async Task Consume(ConsumeContext<PDFCreatedEvent> context)
+    public async Task Consume(ConsumeContext<PDFCreatedEvent> pdfCreatedEvent)
     {
         Console.WriteLine("PDFCreatedEventConsumer::Consume");
-        Console.WriteLine("PDFCreatedEventConsumer::Consume" + context.Message.Email);
+
+        //TODO: Change to List<byte[]> so users can reserver more than one Ticket
+        var attachments = CreateAttachments(await pdfCreatedEvent.Message.Document.Value); 
         var request = new MailRequest
         {
-            ToEmail = context.Message.Email,
+            ToEmail = pdfCreatedEvent.Message.Email,
             Body = "Thank you for choosing our movies!",
             Subject = "Movies Ticket",
+            Attachments = attachments,
         };
 
-        var attachments = new List<IFormFile>();
+        var emailSucceeded = await _mailService.SendEmailAsync(request);
 
-        byte[] byteArr = await context.Message.Document.Value;
-        Console.WriteLine("byteArr:" + byteArr.ToString());
-        var stream = new MemoryStream(byteArr);
-        //using var stream = System.IO.File.OpenRead("Testrun.pdf");
-        attachments.Add(new FormFile(stream, 0, stream.Length, null, "Kinoticket")
+        if (!emailSucceeded)
         {
-            Headers = new HeaderDictionary(),
-            ContentType = "application/pdf",
-        });
-        Console.WriteLine(attachments.Count);
-        request.Attachments = attachments;
+            await _bus.Publish(new EmailFailedEvent
+            {
+                TicketId = pdfCreatedEvent.Message.TicketId,
+            });
+            Console.WriteLine($"MailService: Sent {nameof(EmailFailedEvent)}");
+        }
+    }
 
-        await _mailService.SendEmailAsync(request, byteArr, context.Message.TicketId);
+    private List<IFormFile> CreateAttachments(byte[] byteArr)
+    {
+        var attachments = new List<IFormFile>(); 
+
+        using (var ms = new MemoryStream(byteArr))
+        {
+            attachments.Add(new FormFile(ms, 0, ms.Length, "Kinoticket", "Kinoticket.pdf")
+            {
+                Headers = new HeaderDictionary(),
+                ContentType = "application/pdf",
+            });
+        }
+
+        return attachments; 
     }
 }
