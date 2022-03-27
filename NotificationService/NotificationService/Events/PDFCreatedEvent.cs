@@ -25,7 +25,7 @@ public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
         Console.WriteLine("PDFCreatedEventConsumer::Consume");
 
         //TODO: Change to List<byte[]> so users can reserver more than one Ticket
-        var attachments = CreateAttachments(await pdfCreatedEvent.Message.Document.Value); 
+        var attachments = CreateAttachments(await pdfCreatedEvent.Message.Document.Value);
         var request = new MailRequest
         {
             ToEmail = pdfCreatedEvent.Message.Email,
@@ -48,17 +48,16 @@ public class PDFCreatedEventConsumer : IConsumer<PDFCreatedEvent>
 
     private List<IFormFile> CreateAttachments(byte[] byteArr)
     {
-        var attachments = new List<IFormFile>(); 
+        var attachments = new List<IFormFile>();
 
-        using (var ms = new MemoryStream(byteArr))
+        var ms = new MemoryStream(byteArr);
+
+        attachments.Add(new FormFile(ms, 0, ms.Length, "Kinoticket", "Kinoticket.pdf")
         {
-            attachments.Add(new FormFile(ms, 0, ms.Length, "Kinoticket", "Kinoticket.pdf")
-            {
-                Headers = new HeaderDictionary(),
-                ContentType = "application/pdf",
-            });
-        }
+            Headers = new HeaderDictionary(),
+            ContentType = "application/pdf",
+        });
 
-        return attachments; 
+        return attachments;
     }
 }
